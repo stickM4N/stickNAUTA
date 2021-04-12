@@ -11,6 +11,7 @@ class NautaSession(object):
     __nauta_login_url: str = 'https://secure.etecsa.net:8443/LoginServlet'
     __nauta_query_url: str = 'https://secure.etecsa.net:8443/EtecsaQueryServlet'
     __nauta_logout_url: str = 'https://secure.etecsa.net:8443/LogoutServlet'
+    __language: str
     __session: Session
     __username: str
     __password: str
@@ -18,7 +19,7 @@ class NautaSession(object):
     __CSRFHW: str
     __ATTRIBUTE_UUID: str
 
-    def __init__(self, username: str, password: str) -> None:
+    def __init__(self, username: str, password: str, lang_english: bool = True) -> None:
         if type(username) is not str:
             raise TypeError('username must be a str().')
         elif type(password) is not str:
@@ -29,6 +30,8 @@ class NautaSession(object):
 
         self.__username = username
         self.__password = password
+
+        self.__language = 'en_US' if lang_english else 'es_ES'
 
         self.__session = Session()
 
@@ -49,7 +52,7 @@ class NautaSession(object):
             'password': self.__password,
             'wlanuserip': self.__wlanuserip,
             'CSRFHW': self.__CSRFHW,
-            'lang': 'en_EN'
+            'lang': self.__language
         })
 
         if not response.ok:
@@ -98,7 +101,7 @@ class NautaSession(object):
             'password': self.__password,
             'wlanuserip': self.__wlanuserip,
             'CSRFHW': self.__CSRFHW,
-            'lang': 'en_EN'
+            'lang': self.__language
         })
 
         if not response.ok:
