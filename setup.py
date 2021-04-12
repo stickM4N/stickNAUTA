@@ -8,7 +8,7 @@ with open('requirements.txt', 'r', encoding='utf-8') as file:
 setup(
     script_name='setup.py',
     name='stickNAUTA',
-    version='1.0.0',
+    version='1.1.0',
     author='stickM4N',
     author_email='jcgalindo.jcgh@gmail.com',
     license='MIT',

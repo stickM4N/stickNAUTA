@@ -1,9 +1,9 @@
 from __future__ import (annotations)
 
 from ctypes import (Union)
+from json import (load, dump)
 from re import (search)
 
-from json import (load, dump)
 from lxml import (html)
 from requests import (Session)
 from requests.utils import (dict_from_cookiejar, cookiejar_from_dict)
