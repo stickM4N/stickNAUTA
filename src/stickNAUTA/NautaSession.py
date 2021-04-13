@@ -62,9 +62,10 @@ class NautaSession(object):
                 raise RuntimeError(f'Failed to get user data (credit) with HTTP code: {response.status_code}, '
                                    f'reason: "{response.reason}".')
 
-            if 'secure.etecsa.net' not in response.url:
-                reason = search(r'alert\("(?P<_>[^"]*?)"\)', response.text).group(1)
-                raise RuntimeError(f'Failed to get user data (credit) reason: "{reason}".')
+            alert = search(r'alert\("(?P<_>[^"]*?)"\)', response.text)
+            if alert:
+                raise RuntimeError(f'Failed to get user data (probably related to wrong credentials or '
+                                   f'insufficient balance in the account. More info: "{alert.group(1)}"')
 
             html_tree = html.fromstring(response.text)
             account_state = html_tree.xpath('//*[@id="sessioninfo"]/tbody/tr[1]/td[2]/text()')[0][13:-12]
