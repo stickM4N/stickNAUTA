@@ -11,9 +11,19 @@ DONE
   + Session logout.
   + Session is context friendly.
   + Session data can be saved/load to/from memory or file to save/recover the session.
+  + Portal CAPTCHA request and submit.
+  + Portal account recharge.
+  + Portal change account/email password.
+  + Portal transfer balance.
+  + Portal account data.
+  + Portal connection details with all session historial.
+  + Portal recharge details with all recharge historial.
+  + Portal transfer details with all transfer historial.
+  + Portal data can be saved/load to/from memory or file to save/recover the session.
 
 TODO
 ----
-  - Portal account information.
-  - Portal account password change.
-  - Portal account recharge.
+  - ?
+
+__Please submit all suggestion or issues.__
+
