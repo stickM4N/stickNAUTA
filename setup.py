@@ -2,13 +2,10 @@ from setuptools import (setup, find_packages)
 
 with open('README.md', 'r', encoding='utf-8') as file:
     readme = file.read()
-with open('requirements.txt', 'r', encoding='utf-8') as file:
-    requirements = [requirement[:-1] if requirement.endswith('\n') else requirement for requirement in file]
 
 setup(
-    script_name='setup.py',
     name='stickNAUTA',
-    version='2.0.2',
+    version='2.0.3',
     author='stickM4N',
     author_email='jcgalindo.jcgh@gmail.com',
     license='MIT',
@@ -31,7 +28,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Session',
         'Topic :: Internet :: WWW/HTTP :: Site Management'
     ],
-    install_requires=requirements,
+    install_requires=['lxml', 'requests'],
     package_dir={'': 'src'},
     packages=find_packages(where='src'),
     python_requires='>=3.7',
