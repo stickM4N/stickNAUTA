@@ -79,22 +79,11 @@ class NautaSession(object):
                 'credit': credit,
                 'expiration_date': expiration_date,
                 'access_areas': access_areas,
-                'sessions': [
-                    {
-                        'start': sessions_data[0],
-                        'end': sessions_data[1],
-                        'duration': sessions_data[2]
-                    },
-                    {
-                        'start': sessions_data[3],
-                        'end': sessions_data[4],
-                        'duration': sessions_data[5]
-                    },
-                    {
-                        'start': sessions_data[6],
-                        'end': sessions_data[7],
-                        'duration': sessions_data[8]
-                    }
+                'sessions': [{
+                    'start': sessions_data[i],
+                    'end': sessions_data[i + 1],
+                    'duration': sessions_data[i + 2]
+                } for i in range(int(len(sessions_data) / 3))
                 ]
             }
 
