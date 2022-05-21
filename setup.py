@@ -1,4 +1,5 @@
 from setuptools import (setup, find_packages)
+import src.stickNAUTA as stickNAUTA
 
 with open('README.md', 'r', encoding='utf-8') as file:
     readme = file.read()
@@ -8,7 +9,7 @@ with open('requirements.txt', 'r', encoding='utf-8') as file:
 setup(
     script_name='setup.py',
     name='stickNAUTA',
-    version='2.0.0',
+    version=stickNAUTA.__version__,
     author='stickM4N',
     author_email='jcgalindo.jcgh@gmail.com',
     license='MIT',
